@@ -1,12 +1,8 @@
 import React, { ReactNode } from 'react';
 import {
-  IconButton,
-  Avatar,
   Box,
   CloseButton,
   Flex,
-  HStack,
-  VStack,
   Icon,
   useColorModeValue,
   Link,
@@ -16,18 +12,10 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
 } from '@chakra-ui/react';
 import { FaBeer, FaBoxes, FaClipboard, FaCog } from 'react-icons/fa';
-import { FiChevronDown } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
-import { BsMoonStarsFill } from 'react-icons/bs';
-import { useColorMode } from '@chakra-ui/react';
 
 interface LinkItemProps {
   name: string;
