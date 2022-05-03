@@ -15,6 +15,7 @@ const Links = [
   { title: 'Fermentables', path: '/ingredients/fermentable' },
   { title: 'Hops', path: '/ingredients/hop' },
   { title: 'Yeast', path: '/ingredients/yeast' },
+  { title: 'Miscellaneous', path: '/ingredients/miscellaneous' },
 ];
 
 const NavLink = ({ path, title }: { path: string; title: string }) => (

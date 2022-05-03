@@ -1,9 +1,6 @@
 package com.perkylab.brewery.services;
 
-import com.perkylab.brewery.domain.Fermentable;
-import com.perkylab.brewery.domain.Hop;
-import com.perkylab.brewery.domain.Ingredient;
-import com.perkylab.brewery.domain.Yeast;
+import com.perkylab.brewery.domain.*;
 import com.perkylab.brewery.dto.YeastDto;
 
 import java.util.List;
@@ -37,5 +34,13 @@ public interface IngredientService {
     Yeast newYeast(Yeast yeast);
 
     void deleteYeastById(Long id);
+
+    List<Miscellaneous> getAllMiscellaneous();
+
+    Miscellaneous getMiscellaneousById(Long id) throws Exception;
+
+    Miscellaneous newMiscellaneous(Miscellaneous misc);
+
+    void deleteMiscellaneousById(Long id);
 
 }

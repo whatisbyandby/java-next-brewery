@@ -104,4 +104,28 @@ public class IngredientController {
         ingredientService.deleteYeastById(id);
     }
 
+    @GetMapping("/misc")
+    public List<YeastDto> getAllMisc() {
+        return ingredientService.getAllYeast()
+                .stream()
+                .map(YeastDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/misc/{id}")
+    public YeastDto getMiscById(@PathVariable Long id) throws Exception {
+        return new YeastDto(ingredientService.getYeastById(id));
+    }
+
+    @PostMapping("/misc")
+    public YeastDto newMisc(@RequestBody YeastDto yeastDto) {
+        Yeast yeast = yeastDto.toYeast();
+        return new YeastDto(ingredientService.newYeast(yeast));
+    }
+
+    @DeleteMapping("/misc/{id}")
+    public void deleteMiscById(@PathVariable Long id) {
+        ingredientService.deleteYeastById(id);
+    }
+
 }

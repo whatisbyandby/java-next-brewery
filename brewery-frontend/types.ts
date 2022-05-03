@@ -58,3 +58,8 @@ export interface Yeast extends Ingredient {
   maximumAttenuation: number;
   maximumABV: number;
 }
+
+export interface Miscellaneous extends Ingredient {
+  use: string;
+  miscType: string;
+}

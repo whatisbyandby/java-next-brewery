@@ -11,4 +11,5 @@ import javax.persistence.Entity;
 public class Miscellaneous extends Ingredient {
 
     private MiscellaneousType miscType;
+    private IngredientUse use;
 }

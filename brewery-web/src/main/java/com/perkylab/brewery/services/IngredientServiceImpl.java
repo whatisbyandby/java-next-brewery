@@ -1,13 +1,7 @@
 package com.perkylab.brewery.services;
 
-import com.perkylab.brewery.domain.Fermentable;
-import com.perkylab.brewery.domain.Hop;
-import com.perkylab.brewery.domain.Ingredient;
-import com.perkylab.brewery.domain.Yeast;
-import com.perkylab.brewery.repositories.FermentableRepository;
-import com.perkylab.brewery.repositories.HopRepository;
-import com.perkylab.brewery.repositories.IngredientRepository;
-import com.perkylab.brewery.repositories.YeastRepository;
+import com.perkylab.brewery.domain.*;
+import com.perkylab.brewery.repositories.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,17 +16,20 @@ public class IngredientServiceImpl implements IngredientService {
     private final HopRepository hopRepository;
     private final FermentableRepository fermentableRepository;
     private final YeastRepository yeastRepository;
+    private final MiscellaneousRepository miscRepository;
 
     public IngredientServiceImpl(
             IngredientRepository ingredientRepository,
             FermentableRepository fermentableRepository,
             HopRepository hopRepository,
-            YeastRepository yeastRepository
+            YeastRepository yeastRepository,
+            MiscellaneousRepository miscRepository
     ) {
         this.ingredientRepository = ingredientRepository;
         this.hopRepository = hopRepository;
         this.fermentableRepository = fermentableRepository;
         this.yeastRepository = yeastRepository;
+        this.miscRepository = miscRepository;
     }
 
     @Override
@@ -129,6 +126,33 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public void deleteYeastById(Long id) {
         ingredientRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Miscellaneous> getAllMiscellaneous() {
+        return StreamSupport
+                .stream(miscRepository.findAll().spliterator(), false)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Miscellaneous getMiscellaneousById(Long id) throws Exception {
+        Optional<Miscellaneous> result = miscRepository.findById(id);
+        if (result.isEmpty()) {
+            throw new Exception("Mo misc with that id");
+        }
+
+        return result.get();
+    }
+
+    @Override
+    public Miscellaneous newMiscellaneous(Miscellaneous misc) {
+        return miscRepository.save(misc);
+    }
+
+    @Override
+    public void deleteMiscellaneousById(Long id) {
+        miscRepository.deleteById(id);
     }
 
 }
