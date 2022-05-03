@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > YeastDto</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.perkylab.brewery.dto</a>
+</div>
+
+<h1>Coverage Summary for Class: YeastDto (com.perkylab.brewery.dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">YeastDto</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.8%
+  </span>
+  <span class="absValue">
+    (9/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.5%
+  </span>
+  <span class="absValue">
+    (29/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.perkylab.brewery.dto;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.perkylab.brewery.domain.Yeast;
+<i class="no-highlight">4</i>&nbsp;import com.perkylab.brewery.domain.YeastType;
+<i class="no-highlight">5</i>&nbsp;import lombok.Getter;
+<i class="no-highlight">6</i>&nbsp;import lombok.Setter;
+<i class="no-highlight">7</i>&nbsp;
+<i class="no-highlight">8</i>&nbsp;import java.math.BigDecimal;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;@Getter
+<b class="nc"><i class="no-highlight">11</i>&nbsp;@Setter</b>
+<i class="no-highlight">12</i>&nbsp;public class YeastDto extends IngredientDto {
+<b class="fc"><i class="no-highlight">13</i>&nbsp;    private BigDecimal attenuation;</b>
+<b class="fc"><i class="no-highlight">14</i>&nbsp;    private YeastType yeastType;</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;    private BigDecimal minimumTemperature;</b>
+<b class="fc"><i class="no-highlight">16</i>&nbsp;    private BigDecimal maximumTemperature;</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;    private BigDecimal minimumAttenuation;</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;    private BigDecimal maximumAttenuation;</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;    private BigDecimal maximumABV;</b>
+<i class="no-highlight">20</i>&nbsp;
+<b class="nc"><i class="no-highlight">21</i>&nbsp;    public YeastDto() {</b>
+<i class="no-highlight">22</i>&nbsp;
+<i class="no-highlight">23</i>&nbsp;    }
+<i class="no-highlight">24</i>&nbsp;
+<i class="no-highlight">25</i>&nbsp;    public YeastDto(Yeast yeast) {
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        super(yeast);</b>
+<b class="fc"><i class="no-highlight">27</i>&nbsp;        this.attenuation = yeast.getAttenuation();</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;        this.yeastType = yeast.getYeastType();</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        this.minimumTemperature = yeast.getMinimumTemperature();</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        this.maximumTemperature = yeast.getMaximumTemperature();</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        this.minimumAttenuation = yeast.getMinimumAttenuation();</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        this.maximumAttenuation = yeast.getMaximumAttenuation();</b>
+<b class="fc"><i class="no-highlight">33</i>&nbsp;        this.maximumABV = yeast.getMaximumABV();</b>
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    public Yeast toYeast() {
+<b class="fc"><i class="no-highlight">37</i>&nbsp;        Yeast yeast = new Yeast();</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        yeast.setId(this.getId());</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        yeast.setName(this.getName());</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        yeast.setNotes(this.getNotes());</b>
+<b class="fc"><i class="no-highlight">41</i>&nbsp;        yeast.setSupplier(this.getSupplier());</b>
+<b class="fc"><i class="no-highlight">42</i>&nbsp;        yeast.setOrigin(this.getOrigin());</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;        yeast.setAttenuation(this.attenuation);</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;        yeast.setYeastType(this.yeastType);</b>
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        yeast.setMinimumTemperature(this.minimumTemperature);</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;        yeast.setMaximumTemperature(this.maximumTemperature);</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        yeast.setMinimumAttenuation(this.minimumAttenuation);</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        yeast.setMaximumAttenuation(this.maximumAttenuation);</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        yeast.setMaximumABV(this.maximumABV);</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;        return yeast;</b>
+<i class="no-highlight">51</i>&nbsp;    }
+<i class="no-highlight">52</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-02 19:33</div>
+</div>
+</body>
+</html>
