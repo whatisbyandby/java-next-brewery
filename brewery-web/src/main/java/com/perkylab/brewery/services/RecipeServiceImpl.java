@@ -1,5 +1,6 @@
 package com.perkylab.brewery.services;
 
+import com.perkylab.brewery.domain.Ingredient;
 import com.perkylab.brewery.domain.IngredientAddition;
 import com.perkylab.brewery.domain.Recipe;
 import com.perkylab.brewery.repositories.IngredientAdditionRepository;
@@ -47,9 +48,12 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public IngredientAddition addIngredient(Long id, IngredientAddition ingredientAddition) {
+    public IngredientAddition addIngredient(Long id, Long ingredientId, IngredientAddition ingredientAddition) {
         Recipe recipe = entityManager.getReference(Recipe.class, id);
+        Ingredient ingredient = entityManager.getReference(Ingredient.class, ingredientId);
+        recipe.getIngredients().add(ingredientAddition);
         ingredientAddition.setRecipe(recipe);
+        ingredientAddition.setIngredient(ingredient);
         return ingredientAdditionRepository.save(ingredientAddition);
     }
 

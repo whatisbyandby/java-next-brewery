@@ -26,7 +26,7 @@ public class Recipe {
     private BigDecimal mashEfficiency;
     private String notes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "recipe")
     private Set<IngredientAddition> ingredients;
 
     public Recipe() {

@@ -3,6 +3,7 @@ package com.perkylab.brewery.controllers;
 import com.perkylab.brewery.domain.IngredientAddition;
 import com.perkylab.brewery.domain.Recipe;
 import com.perkylab.brewery.domain.RecipeType;
+import com.perkylab.brewery.dto.IngredientAdditionDto;
 import com.perkylab.brewery.dto.RecipeDto;
 import com.perkylab.brewery.services.RecipeService;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @RestController
 @RequestMapping("/api/1.0/recipe")
@@ -23,25 +25,29 @@ public class RecipeController {
     }
 
     @GetMapping
-    public List<Recipe> getRecipes() {
-        List<Recipe> recipes = recipeService.getAllRecipes();
-        return recipes;
+    public List<RecipeDto> getRecipes() {
+       return recipeService.getAllRecipes().stream()
+               .map(RecipeDto::new).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public Recipe getRecipeDetails(@PathVariable Long id) throws Exception {
-        return recipeService.getRecipeDetails(id);
+    public RecipeDto getRecipeDetails(@PathVariable Long id) throws Exception {
+        return new RecipeDto(recipeService.getRecipeDetails(id));
     }
 
     @PostMapping
-    public ResponseEntity<Recipe> newRecipe(@RequestBody RecipeDto recipeDto) {
+    public ResponseEntity<RecipeDto> newRecipe(@RequestBody RecipeDto recipeDto) {
         Recipe recipe = recipeDto.toRecipe();
-        return ResponseEntity.ok().body(recipeService.newRecipe(recipe));
+        return ResponseEntity.ok().body(new RecipeDto(recipeService.newRecipe(recipe)));
     }
 
     @PostMapping("/{id}/ingredient")
-    public ResponseEntity<IngredientAddition> addIngredient(@PathVariable Long id, @RequestBody IngredientAddition ingredientAddition) {
-        return ResponseEntity.ok().body(recipeService.addIngredient(id, ingredientAddition));
+    public ResponseEntity<IngredientAdditionDto> addIngredient(@PathVariable Long id, @RequestBody IngredientAdditionDto ingredientAdditionDto) {
+
+        IngredientAddition ingredientAddition = ingredientAdditionDto.toIngredientAddition();
+
+        return ResponseEntity.ok().body(
+                        new IngredientAdditionDto(recipeService.addIngredient(id, ingredientAdditionDto.getIngredientId(), ingredientAddition)));
     }
 
     @DeleteMapping("/{id}")

@@ -18,7 +18,7 @@ export async function getServerSideProps({ params }: any) {
 
 export default function EditRecipe({ recipe }: { recipe: Recipe }) {
   return (
-    <Container bg="white" maxW={'100%'} padding={2}>
+    <Container maxW={'100%'} padding={2}>
       <RecipeForm recipe={recipe} />
     </Container>
   );

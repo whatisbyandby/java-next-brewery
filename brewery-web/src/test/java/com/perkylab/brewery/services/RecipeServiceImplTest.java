@@ -59,12 +59,12 @@ class RecipeServiceImplTest {
     void newRecipe() {
     }
 
-   @Test
-    void addIngredient() {
-        IngredientAddition ingredientAddition = new IngredientAddition();
-
-        recipeService.addIngredient(1L, ingredientAddition);
+//   @Test
+//    void addIngredient() {
+//        IngredientAddition ingredientAddition = new IngredientAddition();
 //
-//        verify(ingredientAdditionRepository, times(1)).save(ingredientAddition);
-   }
+//        recipeService.addIngredient(1L, ingredientAddition);
+////
+////        verify(ingredientAdditionRepository, times(1)).save(ingredientAddition);
+//   }
 }

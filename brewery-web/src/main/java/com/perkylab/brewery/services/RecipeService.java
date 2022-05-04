@@ -10,5 +10,5 @@ public interface RecipeService {
     Recipe getRecipeDetails(Long id) throws Exception;
     Recipe newRecipe(Recipe recipe) throws InvalidRecipeException;
     void deleteRecipe(Long id);
-    IngredientAddition addIngredient(Long id, IngredientAddition ingredientAddition);
+    IngredientAddition addIngredient(Long id, Long ingredientId, IngredientAddition ingredientAddition);
 }

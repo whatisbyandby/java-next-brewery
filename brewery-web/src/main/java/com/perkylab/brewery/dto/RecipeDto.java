@@ -31,6 +31,7 @@ public class RecipeDto {
     }
 
     public RecipeDto(Recipe recipe) {
+        this.setId(recipe.getId());
         this.setName(recipe.getName());
         this.setAuthor(recipe.getAuthor());
         this.setDescription(recipe.getDescription());
@@ -47,6 +48,7 @@ public class RecipeDto {
 
     public Recipe toRecipe() {
         Recipe recipe = new Recipe();
+        recipe.setId(this.getId());
         recipe.setName(this.getName());
         recipe.setAuthor(this.getAuthor());
         recipe.setDescription(this.getDescription());
