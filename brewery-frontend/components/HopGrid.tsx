@@ -15,6 +15,8 @@ import {
 } from '@chakra-ui/react';
 import { BsTrashFill, BsPencilSquare } from 'react-icons/bs';
 import { useRouter } from 'next/router';
+import { FileUploader } from 'react-drag-drop-files';
+import DragFileUploader from './DragFileUploader';
 
 function TableRow({ hop }: { hop: Hop }) {
   const router = useRouter();
@@ -58,13 +60,14 @@ export default function HopGrid() {
   return (
     <>
       <TableContainer>
-        <HStack spacing={2} m={2}>
+        <HStack justify="space-between" m={2}>
           <Button
             colorScheme="blue"
             onClick={() => router.push('/ingredients/hop/new')}
           >
             New
           </Button>
+          <DragFileUploader />
         </HStack>
         <Table variant="simple">
           <Thead>
