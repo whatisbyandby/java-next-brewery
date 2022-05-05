@@ -14,6 +14,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     private final IngredientRepository ingredientRepository;
     private final HopRepository hopRepository;
+
     private final FermentableRepository fermentableRepository;
     private final YeastRepository yeastRepository;
     private final MiscellaneousRepository miscRepository;
@@ -24,6 +25,7 @@ public class IngredientServiceImpl implements IngredientService {
             HopRepository hopRepository,
             YeastRepository yeastRepository,
             MiscellaneousRepository miscRepository
+
     ) {
         this.ingredientRepository = ingredientRepository;
         this.hopRepository = hopRepository;
@@ -95,6 +97,11 @@ public class IngredientServiceImpl implements IngredientService {
         }
 
         return result.get();
+    }
+
+    @Override
+    public Hop importHop(String importString) {
+        return null;
     }
 
     @Override

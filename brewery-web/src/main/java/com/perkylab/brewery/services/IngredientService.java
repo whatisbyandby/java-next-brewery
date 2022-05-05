@@ -25,6 +25,7 @@ public interface IngredientService {
 
     Hop getHopById(Long id) throws Exception;
 
+    Hop importHop(String importString);
     void deleteHopById(Long id);
 
     List<Yeast> getAllYeast();
