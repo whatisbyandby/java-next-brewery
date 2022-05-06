@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RecipeDto</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.perkylab.brewery.dto</a>
+</div>
+
+<h1>Coverage Summary for Class: RecipeDto (com.perkylab.brewery.dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RecipeDto</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.perkylab.brewery.dto;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;
+<i class="no-highlight">4</i>&nbsp;import com.perkylab.brewery.domain.Recipe;
+<i class="no-highlight">5</i>&nbsp;import com.perkylab.brewery.domain.RecipeType;
+<i class="no-highlight">6</i>&nbsp;import lombok.Getter;
+<i class="no-highlight">7</i>&nbsp;import lombok.Setter;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;import java.math.BigDecimal;
+<i class="no-highlight">10</i>&nbsp;import java.math.BigInteger;
+<i class="no-highlight">11</i>&nbsp;import java.util.List;
+<i class="no-highlight">12</i>&nbsp;
+<i class="no-highlight">13</i>&nbsp;@Getter
+<b class="nc"><i class="no-highlight">14</i>&nbsp;@Setter</b>
+<i class="no-highlight">15</i>&nbsp;public class RecipeDto {
+<b class="nc"><i class="no-highlight">16</i>&nbsp;    private Long id;</b>
+<b class="nc"><i class="no-highlight">17</i>&nbsp;    private String name;</b>
+<b class="nc"><i class="no-highlight">18</i>&nbsp;    private String author;</b>
+<b class="nc"><i class="no-highlight">19</i>&nbsp;    private String description;</b>
+<b class="nc"><i class="no-highlight">20</i>&nbsp;    private RecipeType recipeType;</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;    private BigInteger boilTime;</b>
+<b class="nc"><i class="no-highlight">22</i>&nbsp;    private BigDecimal batchVolume;</b>
+<b class="nc"><i class="no-highlight">23</i>&nbsp;    private BigDecimal preBoilVolume;</b>
+<b class="nc"><i class="no-highlight">24</i>&nbsp;    private BigDecimal brewhouseEfficiency;</b>
+<b class="nc"><i class="no-highlight">25</i>&nbsp;    private BigDecimal mashEfficiency;</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;    private String notes;</b>
+<i class="no-highlight">27</i>&nbsp;
+<b class="nc"><i class="no-highlight">28</i>&nbsp;    private List&lt;IngredientAdditionDto&gt; ingredientList;</b>
+<i class="no-highlight">29</i>&nbsp;
+<b class="nc"><i class="no-highlight">30</i>&nbsp;    public RecipeDto() {</b>
+<i class="no-highlight">31</i>&nbsp;    }
+<i class="no-highlight">32</i>&nbsp;
+<b class="nc"><i class="no-highlight">33</i>&nbsp;    public RecipeDto(Recipe recipe) {</b>
+<b class="nc"><i class="no-highlight">34</i>&nbsp;        this.setId(recipe.getId());</b>
+<b class="nc"><i class="no-highlight">35</i>&nbsp;        this.setName(recipe.getName());</b>
+<b class="nc"><i class="no-highlight">36</i>&nbsp;        this.setAuthor(recipe.getAuthor());</b>
+<b class="nc"><i class="no-highlight">37</i>&nbsp;        this.setDescription(recipe.getDescription());</b>
+<b class="nc"><i class="no-highlight">38</i>&nbsp;        this.setRecipeType(recipe.getRecipeType());</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;        this.setBoilTime(recipe.getBoilTime());</b>
+<b class="nc"><i class="no-highlight">40</i>&nbsp;        this.setBatchVolume(recipe.getBatchVolume());</b>
+<b class="nc"><i class="no-highlight">41</i>&nbsp;        this.setPreBoilVolume(recipe.getPreBoilVolume());</b>
+<b class="nc"><i class="no-highlight">42</i>&nbsp;        this.setBrewhouseEfficiency(recipe.getBrewhouseEfficiency());</b>
+<b class="nc"><i class="no-highlight">43</i>&nbsp;        this.setMashEfficiency(recipe.getMashEfficiency());</b>
+<b class="nc"><i class="no-highlight">44</i>&nbsp;        this.setNotes(recipe.getNotes());</b>
+<i class="no-highlight">45</i>&nbsp;    }
+<i class="no-highlight">46</i>&nbsp;
+<i class="no-highlight">47</i>&nbsp;
+<i class="no-highlight">48</i>&nbsp;
+<i class="no-highlight">49</i>&nbsp;    public Recipe toRecipe() {
+<b class="nc"><i class="no-highlight">50</i>&nbsp;        Recipe recipe = new Recipe();</b>
+<b class="nc"><i class="no-highlight">51</i>&nbsp;        recipe.setId(this.getId());</b>
+<b class="nc"><i class="no-highlight">52</i>&nbsp;        recipe.setName(this.getName());</b>
+<b class="nc"><i class="no-highlight">53</i>&nbsp;        recipe.setAuthor(this.getAuthor());</b>
+<b class="nc"><i class="no-highlight">54</i>&nbsp;        recipe.setDescription(this.getDescription());</b>
+<b class="nc"><i class="no-highlight">55</i>&nbsp;        recipe.setRecipeType(this.getRecipeType());</b>
+<b class="nc"><i class="no-highlight">56</i>&nbsp;        recipe.setBoilTime(this.getBoilTime());</b>
+<b class="nc"><i class="no-highlight">57</i>&nbsp;        recipe.setBatchVolume(this.getBatchVolume());</b>
+<b class="nc"><i class="no-highlight">58</i>&nbsp;        recipe.setPreBoilVolume(this.getPreBoilVolume());</b>
+<b class="nc"><i class="no-highlight">59</i>&nbsp;        recipe.setBrewhouseEfficiency(this.getBrewhouseEfficiency());</b>
+<b class="nc"><i class="no-highlight">60</i>&nbsp;        recipe.setMashEfficiency(this.getMashEfficiency());</b>
+<b class="nc"><i class="no-highlight">61</i>&nbsp;        recipe.setNotes(this.getNotes());</b>
+<b class="nc"><i class="no-highlight">62</i>&nbsp;        return recipe;</b>
+<i class="no-highlight">63</i>&nbsp;    }
+<i class="no-highlight">64</i>&nbsp;
+<i class="no-highlight">65</i>&nbsp;}
+<i class="no-highlight">66</i>&nbsp;
+<i class="no-highlight">67</i>&nbsp;
+<i class="no-highlight">68</i>&nbsp;
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-05 17:17</div>
+</div>
+</body>
+</html>

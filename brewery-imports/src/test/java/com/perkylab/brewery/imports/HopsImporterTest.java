@@ -1,3 +1,5 @@
+package com.perkylab.brewery.imports;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,7 +15,7 @@ class HopsImporterTest {
 
     @Test
     void importHops() throws JsonProcessingException {
-        String testString ="<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
+        String testString = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
                 "<HOPS>\n" +
                 "    <HOP>\n" +
                 "        <NAME>Admiral</NAME>\n" +
@@ -43,10 +45,10 @@ class HopsImporterTest {
         objectMapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
         HopsImporter hp = new HopsImporter(objectMapper);
 
-        List<Hop> hopImports = hp.importHops(testString);
+        List<HopImport> hopImports = hp.importHops(testString);
 
         assertEquals(1, hopImports.size());
-        Hop testHop = hopImports.get(0);
+        HopImport testHop = hopImports.get(0);
 
         assertEquals("Admiral", testHop.getName());
         assertEquals(1, testHop.getVersion());

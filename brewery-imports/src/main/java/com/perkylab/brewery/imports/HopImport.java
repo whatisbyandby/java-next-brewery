@@ -1,10 +1,12 @@
+package com.perkylab.brewery.imports;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-public class Hop {
+public class HopImport {
     @JsonProperty("NAME")
     private String name;
 

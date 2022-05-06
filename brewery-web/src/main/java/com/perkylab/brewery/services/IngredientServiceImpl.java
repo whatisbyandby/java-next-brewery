@@ -1,7 +1,11 @@
 package com.perkylab.brewery.services;
 
 import com.perkylab.brewery.domain.*;
+import com.perkylab.brewery.dto.HopDto;
 import com.perkylab.brewery.repositories.*;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -81,11 +85,16 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public List<Hop> getAllHops() {
-        return (List<Hop>) hopRepository.findAll();
+        Pageable firstPage = PageRequest.of(0, 20, Sort.by("name"));
+        return StreamSupport
+                .stream(hopRepository.findAll(firstPage).spliterator(), false)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Hop newHop(Hop hop) {
+        String ingredientId = hop.getName() + hop.getOrigin() + hop.getSupplier();
+        hop.setIngredientId(ingredientId.hashCode());
         return hopRepository.save(hop);
     }
 

@@ -1,3 +1,5 @@
+package com.perkylab.brewery.imports;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import lombok.Data;
@@ -9,5 +11,5 @@ public class Hops {
 
     @JsonProperty("HOP")
     @JacksonXmlElementWrapper(useWrapping=false)
-    private List<Hop> hops;
+    private List<HopImport> hops;
 }
